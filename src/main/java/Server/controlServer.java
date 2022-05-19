@@ -1,5 +1,6 @@
 package Server;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,6 +23,8 @@ public class controlServer extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		if (opcion.equals("crear")) {
 			System.out.println("Presionado crear");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/crear.jsp");
+			requestDispatcher.forward(request, response);
 		} else if(opcion.equals("listar")) {
 			System.out.println("Presionado listar");
 		}
