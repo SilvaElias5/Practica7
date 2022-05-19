@@ -111,6 +111,7 @@ public class Sentencias_cls {
 		List<Modelo_Us> lista = new ArrayList<>();
 		try {
 			con = obtenerConexion();
+			stm = con.prepareStatement(sql);
 			sql = "SELECT * FROM suscriptor";
 			resul = stm.executeQuery(sql);
 			while(resul.next()) {

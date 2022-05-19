@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Modelo.Modelo_Us;
 import Sentencias.Sentencias_cls;
@@ -29,8 +31,25 @@ public class controlServer extends HttpServlet {
 			System.out.println("Presionado crear");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/crear.jsp");
 			requestDispatcher.forward(request, response);
+			
+			
 		} else if(opcion.equals("listar")) {
-			System.out.println("Presionado listar");
+			
+			Sentencias_cls stn = new Sentencias_cls();
+			List<Modelo_Us> lista = new ArrayList<>();
+			try {
+				lista =stn.obtener();
+				System.out.println("Listado de productos desde control servlet");
+				for (Modelo_Us modelo_Us : lista) {
+					System.out.println(modelo_Us);
+				}
+				request.setAttribute("lista", lista);
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/listar.jsp");
+				requestDispatcher.forward(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+
 		}
 	}
 
