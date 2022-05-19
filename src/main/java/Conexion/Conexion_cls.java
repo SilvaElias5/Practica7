@@ -10,7 +10,7 @@ public class Conexion_cls {
 	private static DataSource getDataSource() {
 		if (dataSource==null) {
 			dataSource = new BasicDataSource();
-			dataSource.setDriverClassName("com.mysql.jc.jdbc.Driver");
+			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			dataSource.setUsername("root");
 			dataSource.setPassword("1914");
 			dataSource.setUrl("jdbc:mysql://localhost:3306/practica1");

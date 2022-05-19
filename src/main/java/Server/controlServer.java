@@ -7,6 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+
+import Modelo.Modelo_Us;
+import Sentencias.Sentencias_cls;
 
 
 public class controlServer extends HttpServlet {
@@ -32,8 +36,29 @@ public class controlServer extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String opcion = request.getParameter("opcion");
+		Modelo_Us model = new Modelo_Us();
+		Sentencias_cls sent = new Sentencias_cls();
+		model.setNombre_pila(request.getParameter("nombre"));
+		model.setApellido_paterno(request.getParameter("paterno"));
+		model.setApellido_materno(request.getParameter("materno"));
+		model.setServicio(request.getParameter("servicio"));
+		model.setFecha_nacimiento(Integer.parseInt(request.getParameter("fecha")));
+		model.setPlan(request.getParameter("plan"));
+		model.setEstatus(request.getParameter("estatus"));
+		try {
+			sent.insetar(model);
+			System.out.println("Se inserto dato desde el controlServer");
+			
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+			requestDispatcher.forward(request, response);
+		} catch (SQLException e) {
+			System.out.println("No Se inserto dato desde el controlServer"+e);
+			e.printStackTrace();
+		}
+		
+		
+		//doGet(request, response);
 	}
 
 }
