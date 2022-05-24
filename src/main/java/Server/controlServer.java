@@ -45,8 +45,11 @@ public class controlServer extends HttpServlet {
 				}
 				
 				
-				System.out.println("Listado de usuarios de tipo basico ");
+				System.out.println("Listado de usuarios por  tipo ");
 					System.out.println(stn.obtenerTipo());
+					
+					System.out.println("Listado de usuarios por  estatus ");
+					System.out.println(stn.obtenerEstatus());
 				
 				
 				
