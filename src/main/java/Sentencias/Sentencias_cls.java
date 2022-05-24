@@ -130,13 +130,15 @@ public class Sentencias_cls {
 				
 			}
 		} catch (Exception e) {
-			System.out.println("No se pudo mostrarjejejejejeje"+e);
+			System.out.println("No se pudo mostrar"+e);
 		}
 		
-		return lista;
-		
-		
+		return lista;		
 	}
+	
+	
+	
+	
 	
 	public Modelo_Us obtenerUno(int idUs) {
 		String sql = null;
@@ -170,6 +172,40 @@ public class Sentencias_cls {
 		return mo;
 		
 	}
+	
+	public Modelo_Us obtenerTipo() {
+		String sql = null;
+		ResultSet resul = null;
+		Modelo_Us mo = new Modelo_Us();
+		
+		try {
+			con = obtenerConexion();
+			sql = "SELECT * FROM suscriptor WHERE Servicio='Spoty'";
+			stm=con.prepareStatement(sql);
+			resul = stm.executeQuery(sql);
+			//stm.setString(1,serv);
+			System.out.println("Se pudo mostrar");
+				if(resul.next()) {				
+				mo.setId(resul.getInt(1));
+				mo.setNombre_pila(resul.getString(2));
+				mo.setApellido_paterno(resul.getString(3));
+				mo.setApellido_materno(resul.getString(4));
+				mo.setServicio(resul.getString(5));
+				mo.setFecha_nacimiento(resul.getInt(6));
+				mo.setPlan(resul.getString(7));
+				mo.setEstatus(resul.getString(8));			
+			}			
+		} catch (SQLException e) {
+			System.out.println("Se pudo mostrar los tipos "+e);
+			e.printStackTrace();
+		}	
+		return mo;
+	}
+	
+	
+	
+	
+	
 	
 	private Connection obtenerConexion() throws SQLException {
 		return Conexion_cls.regresaConexion();

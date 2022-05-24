@@ -43,6 +43,14 @@ public class controlServer extends HttpServlet {
 				for (Modelo_Us modelo_Us : lista) {
 					System.out.println(modelo_Us);
 				}
+				
+				
+				System.out.println("Listado de usuarios de tipo basico ");
+					System.out.println(stn.obtenerTipo());
+				
+				
+				
+				
 				request.setAttribute("lista", lista);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/listar.jsp");
 				requestDispatcher.forward(request, response);
