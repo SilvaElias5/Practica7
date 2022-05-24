@@ -110,10 +110,11 @@ public class Sentencias_cls {
 		ResultSet resul=null;
 		List<Modelo_Us> lista = new ArrayList<>();
 		try {
-			con = obtenerConexion();
-			stm = con.prepareStatement(sql);
+			con = obtenerConexion();			
 			sql = "SELECT * FROM suscriptor";
+			stm = con.prepareStatement(sql);
 			resul = stm.executeQuery(sql);
+			System.out.println("Se pudo mostrar");
 			while(resul.next()) {
 				Modelo_Us mo = new Modelo_Us();
 				mo.setId(resul.getInt(1));
@@ -126,10 +127,10 @@ public class Sentencias_cls {
 				mo.setEstatus(resul.getString(8));
 				lista.add(mo);	
 				
-				System.out.println("Se pudo mostrar");
+				
 			}
 		} catch (Exception e) {
-			System.out.println("No se pudo mostrar");
+			System.out.println("No se pudo mostrarjejejejejeje"+e);
 		}
 		
 		return lista;

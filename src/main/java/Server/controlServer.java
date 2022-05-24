@@ -39,7 +39,7 @@ public class controlServer extends HttpServlet {
 			List<Modelo_Us> lista = new ArrayList<>();
 			try {
 				lista =stn.obtener();
-				System.out.println("Listado de productos desde control servlet");
+				System.out.println("Listado de usuarios desde control servlet");
 				for (Modelo_Us modelo_Us : lista) {
 					System.out.println(modelo_Us);
 				}
@@ -47,7 +47,7 @@ public class controlServer extends HttpServlet {
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/listar.jsp");
 				requestDispatcher.forward(request, response);
 			} catch (Exception e) {
-				// TODO: handle exception
+				System.out.println("No se pudo listar " + e);
 			}
 
 		}
