@@ -1,5 +1,9 @@
 package Modelo;
-
+/**
+ * Modelo para trabar sobre los cambops de DB
+ * @author silva
+ *
+ */
 public class Modelo_Us {
 	private int id;
 	private String Nombre_pila;
@@ -9,7 +13,17 @@ public class Modelo_Us {
 	private int Fecha_nacimiento;
 	private String Plan;
 	private String Estatus;
-	
+	/**
+	 *  parametros representados para trabajaar  en  todo el proyecto 
+	 * @param id
+	 * @param nombre_pila
+	 * @param apellido_paterno
+	 * @param apellido_materno
+	 * @param servicio
+	 * @param fecha_nacimiento
+	 * @param plan
+	 * @param estatus
+	 */
 	public Modelo_Us(int id, String nombre_pila, String apellido_paterno, String apellido_materno, String servicio,
 			int fecha_nacimiento, String plan, String estatus) {
 		super();
@@ -25,7 +39,10 @@ public class Modelo_Us {
 	
 	public Modelo_Us() {
 	}
-
+/**
+ * se implementan getters y setters para llamarlos desde cualquier proceso 
+ * 
+ */
 	public int getId() {
 		return id;
 	}

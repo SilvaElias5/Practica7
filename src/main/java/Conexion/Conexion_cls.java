@@ -3,7 +3,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
+/**
+ * 
+ * @author silva
+ * se creadatasource para controlar laconexion con sql  
+ */
 public class Conexion_cls {
 	private static BasicDataSource dataSource =null;
 	
@@ -21,6 +25,11 @@ public class Conexion_cls {
 		
 		return dataSource;
 	}
+	/**
+	 * 
+	 * @retur variable de tipo connection 
+	 * @throws SQLException
+	 */
 	public static Connection  regresaConexion() throws SQLException {
 		return getDataSource().getConnection();
 	}

@@ -8,12 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import Conexion.Conexion_cls;
 import Modelo.Modelo_Us;
-
+/**
+ * clase solo con sentencias SQL 
+ * @author Jose Silva 
+ *
+ */
 public class Sentencias_cls {
 	private Connection con;
 	private PreparedStatement stm;
 	private boolean estado;
-	
+	/**
+	 * 
+	 * @param mod Se implementa un objeto de la clase Modelo_Us para trabajar con el 
+	 * @return Se emplea un valor boolean para obtener resultados
+	 * @throws SQLException se crean excepcones para identificar el error 
+	 */
 	public boolean insetar(Modelo_Us mod) throws SQLException {
 		String sql = null;
 		estado = false;
@@ -45,7 +54,11 @@ public class Sentencias_cls {
 		return estado;
 		
 	}
-	
+	/**
+	 * 
+	 * @param mod objeto de clase para utilziarla en el metodo 
+	 * 
+	 */
 	public boolean editar(Modelo_Us mod) {
 		
 		String sql = null;
@@ -79,7 +92,11 @@ public class Sentencias_cls {
 		return estado;
 		
 	}
-	
+	/**
+	 * 
+	 * @param idUs parametro para eliminar solo un registro de la tabla
+	 * 
+	 */
 	public boolean eliminar(int idUs) {
 		
 		String sql = null;
@@ -102,14 +119,19 @@ public class Sentencias_cls {
 		return estado;
 		
 	}
-	
+	/**
+	 * 
+	 * @return regresa una lista de la clase modelo
+	 */
 	public List<Modelo_Us> obtener() {
 		
 		String sql = null;
 		estado = false;
 		ResultSet resul=null;
 		List<Modelo_Us> lista = new ArrayList<>();
+	
 		try {
+		
 			con = obtenerConexion();			
 			sql = "SELECT * FROM suscriptor";
 			stm = con.prepareStatement(sql);
@@ -139,7 +161,12 @@ public class Sentencias_cls {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param idUs regresa solo un registro en especifico 
+	 * condicionado por id 
+	 * @return un objeto en lugar de lista 
+	 */
 	public Modelo_Us obtenerUno(int idUs) {
 		String sql = null;
 		estado = false;
@@ -172,7 +199,10 @@ public class Sentencias_cls {
 		return mo;
 		
 	}
-	
+	/**
+	 * 
+	 * @return recien implementado para obtener de un solo campo 
+	 */
 	public Modelo_Us obtenerTipo() {
 		String sql = null;
 		ResultSet resul = null;
@@ -201,7 +231,10 @@ public class Sentencias_cls {
 		}	
 		return mo;
 	}
-	
+	/**
+	 * 
+	 * @return recien implementado para obteer de un cierto estatus 
+	 */
 	
 	public Modelo_Us obtenerEstatus() {
 		String sql = null;
@@ -234,7 +267,11 @@ public class Sentencias_cls {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @return un metodo de tipo connection
+	 * 
+	 */
 	
 	private Connection obtenerConexion() throws SQLException {
 		return Conexion_cls.regresaConexion();

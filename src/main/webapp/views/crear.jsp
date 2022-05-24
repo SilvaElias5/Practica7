@@ -7,6 +7,7 @@
 <title>Crear</title>
 </head> 	
 <body>
+
 <h1>Crear Suscriptor</h1>
 <form action="controlServer" method="post">
 <input type="hidden" name="opcion" value="insertar">

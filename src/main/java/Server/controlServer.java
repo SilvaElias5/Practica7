@@ -14,7 +14,11 @@ import java.util.List;
 import Modelo.Modelo_Us;
 import Sentencias.Sentencias_cls;
 
-
+/**
+ * 
+ * @author silva
+ * por estaclase se controla todosobre losmetodos y clases implementadas
+ */
 public class controlServer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,7 +28,9 @@ public class controlServer extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-
+/**
+ * direccionamiento a las paginas jsp y se prueban sentencias en consola 
+ */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String opcion = request.getParameter("opcion");
 		if (opcion.equals("crear")) {
