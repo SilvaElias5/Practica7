@@ -42,6 +42,7 @@ public class Modelo_Us {
 /**
  * se implementan getters y setters para llamarlos desde cualquier proceso 
  * 
+ *
  */
 	public int getId() {
 		return id;

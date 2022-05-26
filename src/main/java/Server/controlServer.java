@@ -50,7 +50,9 @@ public class controlServer extends HttpServlet {
 					System.out.println(modelo_Us);
 				}
 				
-				
+				/**
+				 * Pruebas de los metodos agregados de la practica 5
+				 */
 				System.out.println("Listado de usuarios por  tipo ");
 					System.out.println(stn.obtenerTipo());
 					

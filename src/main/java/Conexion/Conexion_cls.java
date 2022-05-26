@@ -6,8 +6,11 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 /**
  * 
  * @author silva
- * se creadatasource para controlar laconexion con sql  
+ * se creadatasource  para controlar laconexion con sql  
  */
+
+
+
 public class Conexion_cls {
 	private static BasicDataSource dataSource =null;
 	

@@ -148,8 +148,6 @@ public class Sentencias_cls {
 				mo.setPlan(resul.getString(7));
 				mo.setEstatus(resul.getString(8));
 				lista.add(mo);	
-				
-				
 			}
 		} catch (Exception e) {
 			System.out.println("No se pudo mostrar"+e);
