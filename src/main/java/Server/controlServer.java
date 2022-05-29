@@ -53,8 +53,11 @@ public class controlServer extends HttpServlet {
 				/**
 				 * Pruebas de los metodos agregados de la practica 5
 				 */
-				System.out.println("Listado de usuarios por  tipo ");
-					System.out.println(stn.obtenerTipo());
+				/**
+				 * Asi mismo en en control del servlet se elimina proceso 
+				 */
+				//System.out.println("Listado de usuarios por  tipo ");
+					//System.out.println(stn.obtenerTipo());
 					
 					System.out.println("Listado de usuarios por  estatus ");
 					System.out.println(stn.obtenerEstatus());

@@ -169,13 +169,19 @@ public class Sentencias_cls {
 	 */
 	public Modelo_Us obtenerUno(int idUs) {
 		String sql = null;
+
 		estado = false;
 		ResultSet resul=null;
 		Modelo_Us mo = new Modelo_Us();
+
 		
 		try {
 			con = obtenerConexion();
 			sql = "SELECT * FROM suscriptor WHERE id=?";
+			/**
+			 * Nueva sentencia implementada reduciendo un metodo dentro de la clase 
+			 */
+			
 			stm=con.prepareStatement(sql);
 			stm.setInt(1, idUs);
 			
@@ -192,17 +198,24 @@ public class Sentencias_cls {
 				mo.setPlan(resul.getString(7));
 				mo.setEstatus(resul.getString(8));			
 			}
+		
+			
 			System.out.println("Se pudo mostrar");
 		} catch (Exception e) {
 			System.out.println("No se pudo mostrar");
 		}
 		return mo;
+				
 		
 	}
 	/**
 	 * 
 	 * @return recien implementado para obtener de un solo campo 
 	 */
+	/**
+	 * Se comenta motodo para que este no sea llamado y mejorar rendimiento. 
+	 */
+
 	public Modelo_Us obtenerTipo() {
 		String sql = null;
 		ResultSet resul = null;
@@ -211,10 +224,13 @@ public class Sentencias_cls {
 		try {
 			con = obtenerConexion();
 			sql = "SELECT * FROM suscriptor WHERE Servicio='Spoty'";
+			
+			
+			
 			stm=con.prepareStatement(sql);
 			resul = stm.executeQuery(sql);
-
-				System.out.println("Se pudo mostrar");
+			
+				System.out.println("Se pudo mostrar por tipos");
 				if(resul.next()) {				
 				mo.setId(resul.getInt(1));
 				mo.setNombre_pila(resul.getString(2));
