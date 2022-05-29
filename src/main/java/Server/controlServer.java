@@ -17,7 +17,7 @@ import Sentencias.Sentencias_cls;
 /**
  * 
  * @author silva
- * por estaclase se controla todosobre losmetodos y clases implementadas
+ * por estaclase se controla todosobre los metodos y clases implementadas
  */
 public class controlServer extends HttpServlet {
 	private static final long serialVersionUID = 1L;

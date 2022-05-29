@@ -69,7 +69,9 @@ public class Sentencias_cls {
 			sql ="UPDATE  suscriptor SET Nombre_pila=?,Apellido_paterno=?,Apellido_materno=?,Servicio=?,Fecha_nacimiento=?,Plan=?,Estatus=? WHERE id=?"
 					+ "VALUES(?,?,?,?,?,?,?,?)";
 			stm =con.prepareStatement(sql);
-			
+			/**
+			 * Setters de los campos que se insertaran
+			 */
 			stm.setString(1, mod.getNombre_pila());
 			stm.setString(2, mod.getApellido_paterno());
 			stm.setString(3, mod.getApellido_materno());
@@ -274,9 +276,4 @@ public class Sentencias_cls {
 	private Connection obtenerConexion() throws SQLException {
 		return Conexion_cls.regresaConexion();
 	}
-	
-	
-	
-	
-
 }
